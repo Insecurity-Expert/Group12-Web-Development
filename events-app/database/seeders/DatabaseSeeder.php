@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,8 +19,35 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'role' => 'admin',
+        ]);
+
+        User::factory() ->create([
+            'name' => 'Test user',
             'email' => 'test@example.com',
+            'role' => 'attendee',
+        ]);
+
+        Event::create([
+            'title' => 'Tech Summit 2026',
+            'description' => 'Maangas na talks about WebDev featuring Angelo Joshua B. San Luis',
+            'location' => 'PUP Main S511',
+            'start_date' => now()->addDays(7),
+            'end_date' => now() -> addDays(7) -> addHours(8),
+            'capacity' => 100,
+            'is_published' => true,
+        ]);
+
+        Event::create([
+            'title' => 'Laravel Workshop',
+            'description' => 'Hands-on Laravel for noobs kagaya ni Gaa (Anlala naman)',
+            'location' => 'PUP Main S510',
+            'start_date' => now()->addDays(14),
+            'end_date' => now()->addDays(14)->addHours(4),
+            'capacity' => 30,
+            'is_published' => true,
         ]);
     }
 }
