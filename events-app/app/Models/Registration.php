@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Registration extends Model
 {
     protected $fillable = [
-        'user_id', 'event_id', 'registation_code', 'status', 'is_checked_in',
+        'user_id', 'event_id', 'registration_code', 'status', 'is_checked_in',
     ];
 
     public function user(){
@@ -15,6 +15,6 @@ class Registration extends Model
     }
 
     public function event(){
-        return $this->belongTo(Event::class);
+        return $this->belongsTo(Event::class);
     }
 }
