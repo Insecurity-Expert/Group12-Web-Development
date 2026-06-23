@@ -17,6 +17,14 @@
                         {{ __('Dashboard') }}
                     </a>
                 </li>
+                @if (Auth::user() && Auth::user()->role === 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.check-in.*') ? 'active' : '' }}"
+                           href="{{ route('admin.check-in.index') }}">
+                            {{ __('Check-in') }}
+                        </a>
+                    </li>
+                @endif
             </ul>
 
             <ul class="navbar-nav">

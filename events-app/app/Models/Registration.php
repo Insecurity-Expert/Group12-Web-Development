@@ -10,6 +10,10 @@ class Registration extends Model
         'user_id', 'event_id', 'registration_code', 'status', 'is_checked_in',
     ];
 
+    protected $casts = [
+        'is_checked_in' => 'boolean',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
