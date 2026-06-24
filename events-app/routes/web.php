@@ -31,5 +31,10 @@ Route::middleware(['auth'])->group(function () {
 });
 // ============ REGISTRATION (Lydia) -- END ============
 
-require __DIR__.'/auth.php';
+// ============ REPORTS (Rein) START ============
+Route::middleware(['auth'])->prefix('reports')->name('reports.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\ReportController::class, 'index'])->name('index');
+});
+// ============ REPORTS (Rein) END ============
 
+require __DIR__.'/auth.php';
