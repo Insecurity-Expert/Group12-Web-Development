@@ -27,7 +27,7 @@ class EventController extends Controller
         $data = $this -> validateEvent($request);
         Event::create($data);
         return redirect()-> route('admin.events.index')
-        ->with('success', 'Event created.');
+            ->with('success', 'Event created.');
     }
 
     public function edit(Event $event){
@@ -37,20 +37,21 @@ class EventController extends Controller
     public function update(Request $request, Event $event){
         $data = $this->validateEvent($request);
         $event->update($data);
-        return redirect()->route('admin.events.index');
+        return redirect()->route('admin.events.index')
+            ->with('success', 'Event updated.');
     }
 
     public function destroy(Event $event){
         $event->delete();
         return redirect()->route('admin.events.index')
-        ->with('success','Event deleted.');
+            ->with('success','Event deleted.');
     }
 
     private function validateEvent(Request $request): array
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|',
+            'description' => 'required|string',
             'location' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date',
