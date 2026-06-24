@@ -22,5 +22,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/check-in', [CheckInController::class, 'process'])->name('admin.check-in.process');
 });
 
+// ============ REGISTRATION (Lydia) -- START ============
+Route::middleware(['auth'])->group(function () {
+    Route::get('/events', [\App\Http\Controllers\RegistrationController::class, 'index'])->name('events.index');
+    Route::get('/events/{event}', [\App\Http\Controllers\RegistrationController::class, 'show'])->name('events.show');
+    Route::post('/events/{event}/register', [\App\Http\Controllers\RegistrationController::class, 'store'])->name('events.register');
+    Route::get('/my-tickets', [\App\Http\Controllers\RegistrationController::class, 'myTickets'])->name('registrations.mine');
+});
+// ============ REGISTRATION (Lydia) -- END ============
+
 require __DIR__.'/auth.php';
 
