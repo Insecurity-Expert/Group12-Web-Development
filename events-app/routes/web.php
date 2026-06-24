@@ -34,7 +34,6 @@ Route::middleware(['auth'])->group(function () {
 // ============ REPORTS (Rein) START ============
 Route::middleware(['auth'])->prefix('reports')->name('reports.')->group(function () {
     Route::get('/', [\App\Http\Controllers\ReportController::class, 'index'])->name('index');
-    Route::get('/{event}', [\App\Http\Controllers\ReportController::class, 'show'])->name('show');
 });
 // ============ REPORTS (Rein) END ============
 
