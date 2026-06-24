@@ -30,21 +30,27 @@
                 </div>
 
                 <div class="mt-4">
-                    @if ($alreadyRegistered)
-                        <p class="text-muted small mb-1">You're already registered for this event.</p>
-                        <a href="{{ route('registrations.mine') }}" class="fw-medium text-decoration-none" style="color:#7c3aed;">
-                            View my ticket &rarr;
-                        </a>
-                    @elseif ($slotsLeft === 0)
-                        <button disabled class="btn btn-secondary w-100">Event Full</button>
-                    @else
-                        <form action="{{ route('events.register', $event) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn w-100 text-white" style="background-color:#c026d3;">
-                                Register for this Event
-                            </button>
-                        </form>
-                    @endif
+                    @auth
+                        @if ($alreadyRegistered)
+                           <p class="text-muted small mb-1">You're already registered for this event.</p>
+                               <a href="{{ route('registrations.mine') }}" class="fw-medium text-decoration-none" style="color:#7c3aed;">
+                                     View my ticket &rarr;
+                                  </a>
+                          @elseif ($slotsLeft === 0)
+                                   <button disabled class="btn btn-secondary w-100">Event Full</button>
+                             @else
+                                  <form action="{{ route('events.register', $event) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn w-100 text-white" style="background-color:#c026d3;">
+                                        Register for this Event
+                                    </button>
+                                  </form>
+                           @endif
+                            @else
+                            <a href="{{ route('login') }}" class="btn w-100 text-white" style="background-color:#c026d3;">
+                              Log in to register
+                              </a>
+                        @endauth
                 </div>
 
             </div>

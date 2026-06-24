@@ -5,13 +5,18 @@ use App\Http\Controllers\Admin\CheckInController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $events = \App\Models\Event::where('is_published', true)
+        ->where('start_date', '>=', now())
+        ->orderBy('start_date')
+        ->withCount(['registrations' => fn($q) => $q->where('status', 'confirmed')])
+        ->take(6)
+        ->get();
+    return view('welcome', compact('events'));
+})->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
+    
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -23,9 +28,10 @@ Route::middleware('auth')->group(function () {
 });
 
 // ============ REGISTRATION (Lydia) -- START ============
+
+Route::get('/events', [\App\Http\Controllers\RegistrationController::class, 'index'])->name('events.index');
+Route::get('/events/{event}', [\App\Http\Controllers\RegistrationController::class, 'show'])->name('events.show');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/events', [\App\Http\Controllers\RegistrationController::class, 'index'])->name('events.index');
-    Route::get('/events/{event}', [\App\Http\Controllers\RegistrationController::class, 'show'])->name('events.show');
     Route::post('/events/{event}/register', [\App\Http\Controllers\RegistrationController::class, 'store'])->name('events.register');
     Route::get('/my-tickets', [\App\Http\Controllers\RegistrationController::class, 'myTickets'])->name('registrations.mine');
 });

@@ -47,7 +47,7 @@ class RegistrationController extends Controller
     public function store(Request $request, Event $event)
     {
         // Stop duplicate sign-ups for the same event.
-        $alreadyRegistered = Registration::where('user_id', Auth::id())
+        $alreadyRegistered = Auth::check() && Registration::where('user_id', Auth::id())
             ->where('event_id', $event->id)
             ->where('status', 'confirmed')
             ->exists();

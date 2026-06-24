@@ -1,3 +1,8 @@
+@php($layout = auth()->check() ? 'layouts.app' : 'layouts.guest')
+@extends($layout)
+
+@section('content')
+
 <x-app-layout>
     <x-slot name="header"><h2 class="h5 mb-0">Manage Events</h2></x-slot>
     <div class="container py-4">

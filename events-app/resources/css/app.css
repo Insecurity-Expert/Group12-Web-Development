@@ -1,1 +1,83 @@
-/* Bootstrap is loaded via CDN in the layouts. Custom styles go here. */
+/* Convene theme — Bootstrap is loaded via CDN; these are our overrides. */
+/* Stronger sidebar/topbar separation */
+.mc-sidebar { background: #fbfaff; box-shadow: 2px 0 12px rgba(80,60,160,0.04); }
+.mc-topbar { box-shadow: 0 2px 8px rgba(80,60,160,0.03); position: sticky; top: 0; z-index: 10; }
+
+/* Stat cards: add a colored accent + hover lift */
+.mc-stat { border-left: 4px solid var(--mc-primary); transition: transform .15s, box-shadow .15s; }
+.mc-stat:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(80,60,160,0.12); }
+
+/* Card hover lift everywhere */
+.card.shadow-sm { transition: transform .15s, box-shadow .15s; }
+.card.shadow-sm:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(80,60,160,0.12); }
+
+/* Auth pages: give the white card a soft gradient page behind it */
+.mc-auth-bg { background: linear-gradient(135deg, #ece9fb 0%, #f6f5fb 100%); min-height: 100vh; }
+
+/* Sticky footer for guest pages */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; min-height: 100vh; }
+body > nav { flex-shrink: 0; }
+.mc-footer { margin-top: auto; }   /* pushes footer to the bottom */
+.mc-footer { background:#fff; border-top:1px solid #eee; color:var(--mc-muted); padding:1.5rem 0; margin-top:3rem; font-size:.875rem; }
+
+:root {
+  --mc-primary: #5b4bdb;
+  --mc-primary-2: #8b5cf6;
+  --mc-primary-soft: #ece9fb;
+  --mc-bg: #f6f5fb;
+  --mc-card: #ffffff;
+  --mc-radius: 16px;
+  --mc-shadow: 0 4px 20px rgba(80, 60, 160, 0.08);
+  --mc-muted: #6b7280;
+}
+
+body { background: var(--mc-bg); }
+
+.mc-card, .card.shadow-sm {
+  border: none !important;
+  border-radius: var(--mc-radius);
+  box-shadow: var(--mc-shadow);
+}
+
+.btn-primary {
+  background: var(--mc-primary);
+  border-color: var(--mc-primary);
+  border-radius: 10px;
+}
+.btn-primary:hover { background: #4c3fc4; border-color: #4c3fc4; }
+
+/* Sidebar */
+.mc-sidebar {
+  width: 250px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 1.25rem 0.75rem;
+}
+.mc-sidebar .mc-brand {
+  display: flex; align-items: center; gap: .5rem;
+  font-weight: 700; font-size: 1.25rem; color: var(--mc-primary);
+  padding: .25rem .75rem 1rem;
+  text-decoration: none;
+}
+.mc-sidebar .nav-link {
+  color: #4b5563; border-radius: 10px; padding: .6rem .75rem; margin-bottom: .15rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.mc-sidebar .nav-link:hover { background: var(--mc-bg); color: var(--mc-primary); }
+.mc-sidebar .nav-link.active { background: var(--mc-primary-soft); color: var(--mc-primary); font-weight: 600; }
+
+.mc-layout { display: flex; min-height: 100vh; }
+.mc-main { display: flex; flex-direction: column; min-height: 100vh; }
+.mc-main main { flex: 1; }   /* content grows, footer drops to bottom */
+.mc-topbar {
+  background: #fff; border-bottom: 1px solid #eee;
+  padding: .85rem 1.5rem; display: flex; align-items: center; justify-content: space-between;
+}
+
+/* Stat cards (dashboard) */
+.mc-stat { border-radius: var(--mc-radius); padding: 1.25rem; box-shadow: var(--mc-shadow); background:#fff; }
+.mc-stat .mc-stat-num { font-size: 1.75rem; font-weight: 700; }
