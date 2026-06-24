@@ -13,4 +13,10 @@ class Event extends Model
     public function registrations(){
         return $this->hasMany(Registration::class);
     }
+
+    protected $casts = [
+    'start_date' => 'datetime',
+    'end_date' => 'datetime',
+    'is_published' => 'boolean',
+    ];
 }

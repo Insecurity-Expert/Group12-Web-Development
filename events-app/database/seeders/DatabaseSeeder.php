@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Event;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,12 +23,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'role' => 'admin',
+            'password' => Hash::make('password123'),
         ]);
 
         User::factory() ->create([
             'name' => 'Test user',
             'email' => 'test@example.com',
             'role' => 'attendee',
+            'password' => Hash::make('password'),
         ]);
 
         Event::create([

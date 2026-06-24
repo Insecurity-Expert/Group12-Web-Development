@@ -24,6 +24,12 @@
                             {{ __('Check-in') }}
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link {{ request()->routeIs('admin.events.*') ? 'active' : '' }}"
+                              href="{{ route('admin.events.index') }}">{{ __('Manage Events') }}
+                        </a>
+                    </li>
                 @endif
             </ul>
 

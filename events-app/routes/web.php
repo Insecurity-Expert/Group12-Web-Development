@@ -37,4 +37,17 @@ Route::middleware(['auth'])->prefix('reports')->name('reports.')->group(function
 });
 // ============ REPORTS (Rein) END ============
 
+// ============ ADMIN EVENT (Angelo) -- START ============
+
+Route::middleware(['auth','admin'])->prefix('admin/events')->name('admin.events.')->group(function(){
+    Route::get('/', [\App\Http\Controllers\Admin\EventController::class, 'index'])->name('index');
+    Route::get('/create', [\App\Http\Controllers\Admin\EventController::class, 'create'])->name('create');
+    Route::post('/', [\App\Http\Controllers\Admin\EventController::class, 'store'])->name('store');
+    Route::get('/{event}/edit', [\App\Http\Controllers\Admin\EventController::class, 'edit'])->name('edit');
+    Route::put('/{event}', [\App\Http\Controllers\Admin\EventController::class, 'update'])->name('update');
+    Route::delete('/{event}', [\App\Http\Controllers\Admin\EventController::class, 'destroy'])->name('destroy');
+});
+
+// ============ ADMIN EVENT (Angelo) -- END ============
+
 require __DIR__.'/auth.php';
