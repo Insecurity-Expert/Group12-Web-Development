@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
 // ============ REGISTRATION (Lydia) -- END ============
 
 // ============ REPORTS (Rein) START ============
-Route::middleware(['auth'])->prefix('reports')->name('reports.')->group(function () {
+Route::middleware(['auth','admin'])->prefix('reports')->name('reports.')->group(function () {
     Route::get('/', [\App\Http\Controllers\ReportController::class, 'index'])->name('index');
 });
 // ============ REPORTS (Rein) END ============
