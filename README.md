@@ -161,10 +161,10 @@ routes/web.php
 
 | Member | Area | Contribution |
 |---|---|---|
-| Angelo | Team lead · Admin Events · integration | 5/5 |
-| Lydia | Registration · UI/UX Design | 5/5 |
-| Jorelle | Check-in · Debug | 5/5 |
-| Rhein | Reports · Debug | 5/5 |
+| Angelo Gaa | Team lead · Admin Events · integration | 5/5 |
+| Lydia Astejada | Registration · UI/UX Design | 5/5 |
+| Jorelle Lenar | Check-in · Debug | 5/5 |
+| Rhein Bhasa | Reports · Debug | 5/5 |
 
 ---
 
