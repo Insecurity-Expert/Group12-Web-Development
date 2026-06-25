@@ -159,12 +159,12 @@ routes/web.php
 
 ## Team
 
-| Member | Area |
+| Member | Area | Contribution |
 |---|---|
-| Angelo | Team lead · Admin Events · integration |
-| Lydia | Registration · UI/UX Design |
-| Jorelle | Check-in · Debug |
-| Rhein | Reports · Debug |
+| Angelo | Team lead · Admin Events · integration | 5/5
+| Lydia | Registration · UI/UX Design | 5/5
+| Jorelle | Check-in · Debug | 5/5
+| Rhein | Reports · Debug | 5/5
 
 ---
 
