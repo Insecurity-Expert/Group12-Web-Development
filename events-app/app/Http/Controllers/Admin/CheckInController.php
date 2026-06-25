@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class CheckInController extends Controller
 {
-    /**
-     * Display the check-in form.
-     */
     public function index(Request $request)
     {
         if ($request->user()->role !== 'admin') {
@@ -20,9 +17,6 @@ class CheckInController extends Controller
         return view('admin.check-in.index');
     }
 
-    /**
-     * Process the check-in code.
-     */
     public function process(Request $request)
     {
         if ($request->user()->role !== 'admin') {

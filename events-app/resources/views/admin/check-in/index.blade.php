@@ -6,7 +6,6 @@
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <!-- Session Alerts -->
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
                         <i class="bi bi-check-circle-fill me-2"></i>
