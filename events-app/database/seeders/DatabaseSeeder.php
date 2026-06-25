@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
 
         Event::create([
             'title' => 'Tech Summit 2026',
-            'description' => 'Maangas na talks about WebDev featuring Angelo Joshua B. San Luis',
+            'description' => 'A full-day summit on modern web development, featuring talks from industry speakers and hands-on sessions.',
             'location' => 'PUP Main S511',
             'start_date' => now()->addDays(7),
             'end_date' => now() -> addDays(7) -> addHours(8),
@@ -45,12 +45,22 @@ class DatabaseSeeder extends Seeder
 
         Event::create([
             'title' => 'Laravel Workshop',
-            'description' => 'Hands-on Laravel for noobs kagaya ni Gaa (Anlala naman)',
+            'description' => 'A beginner-friendly, hands-on workshop covering the fundamentals of the Laravel framework.',
             'location' => 'PUP Main S510',
             'start_date' => now()->addDays(14),
             'end_date' => now()->addDays(14)->addHours(4),
             'capacity' => 30,
             'is_published' => true,
+        ]);
+
+        Event::create([
+    'title' => 'UI/UX Design Bootcamp',
+    'description' => 'An intensive bootcamp on user interface and experience design principles, with live critique sessions.',
+    'location' => 'PUP Main S510',
+    'start_date' => now()->addDays(21),
+    'end_date' => now()->addDays(21)->addHours(6),
+    'capacity' => 50,
+    'is_published' => true,
         ]);
     }
 }
