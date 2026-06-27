@@ -1,4 +1,4 @@
-# Convene — A Event Management System Web App
+# Convene — An Event Management System Web App
 
 A web-based Event Management System built with Laravel. A single organizing body (the admin) creates and manages events; the public can browse events, register for a ticket, and get checked in at the door. Admins view attendance reports.
 
